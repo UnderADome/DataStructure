@@ -1,0 +1,48 @@
+卧槽，妈的，在本地git rm 一个文件之后，进行git pull origin master并不能把这个文件重新下载回来，有毒吧...
+
+
+git fetch 和 git fetch origin master差别有点大，前面一个没什么卵用，后面一个可以从origin master中获取文件下来。但是...如果我们在本地git rm了一个文件，GitHub远程仓库中依然存在这个文件，git fetch不能把这个文件fetch下来，不知道为什么
+
+本地的任何文件被操作之后，都会在GitHub远程仓库中有所体现，所以对本地文件的操作要慎重。
+如果手动删除了本地仓库中的文件，用git status可以看的出来是进行过删除操作的，但是没法git commit，这个时候可以用Git GUI进行操作（这玩意儿还挺好用的）
+
+
+学几个操作
+git rm -r --cached dirname从远程库中删除文件
+git commit -m "say something"提交的时候附带说明
+git push origin master向远程的master（主）分支上提交代码
+
+代码提交到GitHub上的整个流程（一共三步，最后一步可以进行了多次commit之后才进行）
+git add dirname
+git commit -m "say something"
+git push origin master
+
+从远程库中拉取文件
+git pull origin master
+
+
+**************************************************************
+
+http://www.yiibai.com/git/git_pull.html
+
+
+
+手动建立追踪关系
+git branch --set-upstream master origin/next
+这条命令指定master分支追踪origin/next分支
+如果当前分支与远程分支存在追踪关系，git pull就可以省略远程分支名
+
+
+git pull
+上面命令表示，当前分支自动与唯一一个追踪分支进行合并。
+如果合并需要采用rebase模式，可以使用–rebase选项。
+$ git pull --rebase <远程主机名> <远程分支名>:<本地分支名>
+
+
+
+**************************************************************
+
+
+http://blog.csdn.net/th_gsb/article/details/50247305
+
+https://segmentfault.com/a/1190000003728094
