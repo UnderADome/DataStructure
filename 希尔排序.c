@@ -1,3 +1,4 @@
+/**
 #include<stdio.h>
 #include<stdlib.h>
 int main(void)
@@ -26,5 +27,55 @@ int main(void)
 	
 	for (int i=0;i<n+1;i++)
 		printf("%d ", b[i]);
+	return 0;
+}
+**/
+#include<stdio.h>
+int main(void)
+{
+	int a[] = {81,94,11,96,12,35,17,95,28,58,41,75,15};
+	int n = 13;
+ 	printf ("原始序列\n");
+	for (int i=0;i<n;i++)
+		printf("%d ", a[i]);
+	printf("\n\n");
+	int i, j, Increment;
+	int Tmp;
+	for (Increment=n/2; Increment>0; Increment/=2)
+	{
+		printf("\n增量为%d\n", Increment);
+		
+		for (i=Increment; i<n; i++)
+		{
+			printf("\ni=%d\n", i);
+			
+			Tmp = a[i];
+			for (j=i; j>=Increment; j-=Increment)
+			{
+				
+				if (Tmp<a[j-Increment])
+					a[j] = a[j-Increment];
+				else
+					break;
+				for (int i=0;i<n;i++)
+					printf("%d ", a[i]);
+				printf("\n");
+			}
+			a[j] = Tmp;
+			
+			for (int i=0;i<n;i++)
+				printf("%d ", a[i]);
+			printf("\n------------------------\n");
+		}
+		
+		for (int i=0;i<n;i++)
+			printf("%d ", a[i]);
+		printf("\n*************************\n");
+	}
+	
+	printf("\n最终结果:");
+	for (int i=0;i<n;i++)
+		printf("%d ", a[i]);
+	printf("\n");
 	return 0;
 }
