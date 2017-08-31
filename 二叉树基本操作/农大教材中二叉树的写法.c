@@ -1,7 +1,7 @@
-//æ•™æä¸­äºŒå‰æ ‘çš„ä»£ç 
+//½Ì²ÄÖĞ¶ş²æÊ÷µÄ´úÂë
 
 
-//å®ç°ç®€å•çš„æ’å…¥å’Œåˆ é™¤
+//ÊµÏÖ¼òµ¥µÄ²åÈëºÍÉ¾³ı
 #include <stido.h>
 #include <stdlib.h>
 
@@ -14,7 +14,7 @@ typedef struct Node
 	struct Node *rightChild;
 }BiTreeNode;
 
-//åˆå§‹åŒ–åˆ›å»ºäºŒå‰æ ‘çš„å¤´ç»“ç‚¹ 
+//³õÊ¼»¯´´½¨¶ş²æÊ÷µÄÍ·½áµã 
 void Initate(BiTreeNode **root)
 {
 	*root = (BiTreeNode*)malloc(sizeof(BiTreeNode));
@@ -62,7 +62,7 @@ BiTreeNode* DeleteLeftChild(BiTreeNode* curr)
 	if (curr == NULL || curr->leftChild == NULL)
 		return NULL;
 		
-	//å¦åŠ ä¸€ä¸ªDestoryå‡½æ•°ï¼Œå°†åšå­—æ•°éå†free 
+	//Áí¼ÓÒ»¸öDestoryº¯Êı£¬½«×ö×ÖÊı±éÀúfree 
 	free(&curr->leftChild);
 	curr->leftChild = NULL;
 	return curr;

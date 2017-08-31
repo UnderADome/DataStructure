@@ -35,7 +35,7 @@ int main(void)
 {
 	int a[] = {81,94,11,96,12,35,17,95,28,58,41,75,15};
 	int n = 13;
- 	printf ("åŸå§‹åºåˆ—\n");
+ 	printf ("Ô­Ê¼ĞòÁĞ\n");
 	for (int i=0;i<n;i++)
 		printf("%d ", a[i]);
 	printf("\n\n");
@@ -43,7 +43,7 @@ int main(void)
 	int Tmp;
 	for (Increment=n/2; Increment>0; Increment/=2)
 	{
-		printf("\nå¢é‡ä¸º%d\n", Increment);
+		printf("\nÔöÁ¿Îª%d\n", Increment);
 		
 		for (i=Increment; i<n; i++)
 		{
@@ -73,9 +73,11 @@ int main(void)
 		printf("\n*************************\n");
 	}
 	
-	printf("\næœ€ç»ˆç»“æœ:");
+	printf("\n×îÖÕ½á¹û:");
 	for (int i=0;i<n;i++)
 		printf("%d ", a[i]);
 	printf("\n");
+
+	getchar();
 	return 0;
 }

@@ -2,7 +2,7 @@
 int main(void)
 {
 	int b[13] = {45,32,48,65,12,43,62,59,68,32,15,45,55};
-	printf("åŽŸå§‹æ•°åˆ—:");
+	printf("Ô­Ê¼ÊýÁÐ:");
 	for (int i=0;i<13;i++)		
 		printf("%d ", b[i]);
 	printf("\n");
@@ -25,7 +25,7 @@ int main(void)
 			b[j+1] = b[j];
 		}
 		b[low] = temp;
-		printf("ç¬¬%dæ¬¡æŽ’åºï¼š", i+1);
+		printf("µÚ%d´ÎÅÅÐò£º", i+1);
 		for (int i=0;i<13;i++)
 			printf("%d ", b[i]);
 		printf("\n");
@@ -33,5 +33,7 @@ int main(void)
 	
 	for (int i=0;i<13;i++)
 		printf("%d ", b[i]);
+
+	getchar();
 	return 0;
 } 

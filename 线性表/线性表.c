@@ -11,7 +11,7 @@ void init(sequence_list *slt){
 
 void append(sequence_list *slt, datatype x){
 	if (slt->size == MAXSIZE){
-		printf("Ë³Ğò±íÊÇÂúµÄ");
+		printf("é¡ºåºè¡¨æ˜¯æ»¡çš„");
 	}
 	slt->a[slt->size] = x;
 	slt->size = slt->size + 1;
@@ -20,7 +20,7 @@ void append(sequence_list *slt, datatype x){
 void display(sequence_list slt){
 	int i;
 	if (!slt.size){
-		printf ("\nË³Ğò±íÊÇ¿ÕµÄ");
+		printf ("\né¡ºåºè¡¨æ˜¯ç©ºçš„");
 	}else{
 		for (int i=0;i<slt.size;i++){
 			printf("%5d", slt.a[i]);
