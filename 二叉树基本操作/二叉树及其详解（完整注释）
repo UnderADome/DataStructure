@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+/**
+    ∂®“Â
+*/
+typedef struct Node
+{
+    int data;
+    struct Node *lchild;
+    struct Node *lright;
+}NODE, *BSTree;
+
