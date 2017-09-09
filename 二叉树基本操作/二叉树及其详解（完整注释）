@@ -1,13 +1,92 @@
+//http://blog.csdn.net/ns_code/article/details/19823463
 #include<stdio.h>
 #include<stdlib.h>
 
 /**
-    定义
+    定义节点
+    每个节点包括左右两个子节点，包含一个数据
 */
 typedef struct Node
 {
     int data;
     struct Node *lchild;
-    struct Node *lright;
+    struct Node *rchild;
 }NODE, *BSTree;
 
+/*
+    在指针ptree所指的二叉排序树中递归查找关键字为key的元素
+    若查找成功，则返回指向该元素节点的指针，否则返回NULL
+*/
+BSTree search(BSTree pTree, int key)
+{
+    //查找到时返回的pTree为该元素节点，没有找到时为null
+    if (!pTree || pTree->data==key)
+        return pTree;
+    //如果key小于当前节点的值，则在其左子树中递归查找
+    else if (key < pTree->data)
+        return rearch(pTree->lchild, key);
+    //如果key大于当前节点的值，则在其右子树中递归查找
+    else 
+        return rearch(pTree->rchild, key);
+}
+
+
+/*
+在指针ptree所指的二叉排序树中递归查找关键字为key的元素
+若查找成功，则返回true，并将查到的数据对应的节点的指针保存在p中
+否则返回false，并将查找路径上访问的最后一个节点指针保存在p中
+
+这里的参数parent指向每次递归遍历的子树的根节点的父节点，即始终时参数ptree的父节点
+它的初始值为NULL，其目的是跟踪查找路径上访问的当前节点的父节点（即上一个访问节点）
+该函数用来被后面的插入函数调用
+*/
+bool search_BSTree(BSTree pTree, int key, BSTree parent, BSTree &p)
+{
+    //如果ptree为NU来了，则不能进行查找过程
+    if (!pTree)
+    {
+        p = parent;
+        return false;
+    }
+    //不为空，则继续
+    else
+    {
+        //如果相等，则查找成功
+        if (key == pTree->data)
+        {
+            p = pTree;
+            return true;
+        }
+        //在左子树中递归查找
+        else if (key<pTree->data)
+            return search_BSTree(pTree->lchild, key, pTree, p);
+        //在右子树中递归查找
+        else
+            return search_BSTree(pTree->rchild, key, pTree, p);
+    }
+}
+
+
+/*
+    当在ptree所指向的二叉排序树中查找不到关键字为key的数据元素时，
+    将其插入该二叉排序树，并返回true，否则返回false
+    树空时插入会改变根节点的值，因此要传入引用
+*/
+bool insert()
+{
+    BSTree p;
+    if (!search_BSTree(pTree, key, NULL, p))
+    {
+        //为新节点分配空间，并对各域赋值
+        BSTree pNew = (BSTree)malloc(sizeof(NODE));
+        pNew->data = key;
+        pNew->lchild = pNew->rchild = NULL;
+
+        if (!p)
+            pTree = pNew;
+        else if ()
+        else
+
+        return false;
+    }
+}
